@@ -1,6 +1,6 @@
 
 <template>
-  <Home />
+  <Home first-name="Constanza" last-name="Rico"/>
 
 </template>
 

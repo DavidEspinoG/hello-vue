@@ -1,16 +1,24 @@
 <template>
   <div>Home</div>
-  <div> {{ text }}</div>
+  <div> {{ fullName }}</div>
 </template>
 
 <script>
-import { ref } from "vue";
+
+import { toRefs, computed } from "vue";
 
 export default {
-  setup() {
-    const text = ref('Hola Vue');
+  props: {
+    firstName: String, 
+    lastName: String,
+  },
+  setup(props) {
+    const { firstName, lastName } = toRefs(props);
+    const fullName = computed(() => {
+      return `${firstName.value} ${lastName.value}`
+    })
     return {
-      text,
+      fullName
     }
   }
 }
